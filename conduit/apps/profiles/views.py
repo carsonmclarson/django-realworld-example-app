@@ -22,7 +22,7 @@ class ProfileRetrieveAPIView(RetrieveAPIView):
         try:
             profile = self.queryset.get(user__username=username)
         except Profile.DoesNotExist:
-            raise NotFound('A profile with this username does not exist.')
+            raise NotFound('A profile with this username does not exist!')
 
         serializer = self.serializer_class(profile, context={
             'request': request
